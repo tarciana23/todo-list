@@ -21,8 +21,10 @@ public class TodoService {
     }
 
     public List<Todo> list(){
-        Sort sort = (Sort) Sort.by(Sort.Order.desc("prioridade"))
-                        .and(Sort.Order.asc("nome"));
+        Sort sort = Sort.by(
+                Sort.Order.desc("prioridade"),
+                Sort.Order.asc("nome")
+        );
         return repository.findAll(sort);
     }
     public List<Todo> update(Todo todo){
